@@ -1,231 +1,138 @@
-:root {
-  --primary-color: #6c757d; /* Neutral gray for accents */
-  --secondary-color: #adb5bd; /* Light gray for buttons */
-  --background-color: #f8f9fa; /* Light shade of white for the background */
-  --glass-color: rgba(255, 255, 255, 0.6); /* Glassy translucent white */
-  --text-color: #343a40; /* Dark gray for text */
-  --font-primary: 'Poppins', sans-serif; /* Clean, modern font */
-  --font-secondary: 'Pacifico', cursive; /* Whimsical font for headers */
-}
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  width: 100%;
-  height: 100%;
-  font-family: var(--font-primary);
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4; /* Neutral light background */
+  color: #333; /* Neutral text color */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #ffffff, #f1f3f5); /* Subtle gradient */
+  overflow-x: hidden;
 }
-  @media (max-width: 768px) {
-    .action-box {
-      padding: 2rem;
-    }
-    .click-label {
-      font-size: 1rem;
-    }
-  }
 
-/* Style the header */
 header {
-  width: 100%;
-  background-color: var(--primary-color); /* Use a primary color for emphasis */
-  color: var(--text-color); /* Ensure text is readable */
-  text-align: center; /* Center the text horizontally */
-  padding: 0.8rem; /* Add spacing around the header */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Optional: Add a border */
-  position: relative;
-  margin-bottom: 0.1rem;
+  margin-bottom: 2rem;
 }
 
-/* Style the h1 inside the header */
-header h1 {
-  width: 100%;
-  background-color: var(--primary-color); 
-  font-size: 3rem; /* Make the title large and prominent */
-  font-family: var(--font-secondary); /* Use a whimsical font for a playful feel */
-  margin: 0; /* Remove default margin */
-  line-height: 1.2; 
-  color: var(--text-color); 
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #555; /* Neutral dark gray for the title */
   text-align: center;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Optional: Add a border */
-  position: relative; 
 }
+
 .container {
   display: flex;
-  height: 50vh; 
-  margin-top: 1.3rem;
-  margin-bottom: 5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  max-width: 900px;
 }
 
-/* Central heart button styling */
-.heart-button {
-  display: none;
-}
-
-/* Heart animation effect */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* Footer love message styling */
-footer {
-  background-color: var(--accent-color);
-  padding: 1rem;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 1rem; /* Adjust this value to control how far from the bottom */
-  left: 2;
-  right: 0;
-  font-size: 1.2rem;
-  color: var(--text-color);
-  opacity: 0.8;
-  font-family: var(--font-secondary); 
-  font-weight: 600; 
+.action-box {
+  position: relative;
+  background: linear-gradient(135deg, #e8e8e8, #ffffff); /* Subtle gradient */
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: center;
-
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  animation: pulse 3s infinite;
+  overflow: hidden;
 }
 
-/* Heart burst container */
-#heart-burst {
+.image-container {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  top: -10%;
+  left: -10%;
+  width: 200px;
+  height: auto;
+  opacity: 0.15; /* Soft opacity for blending */
+  transform: rotate(-10deg); /* Tilt the image for a whimsical effect */
+  pointer-events: none; /* Prevent the image from interfering with clicks */
 }
 
-/* Burst hearts styling */
-.heart {
-  position: absolute;
+.action-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.heart-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.click-label {
+  background: #888; /* Neutral gray for the button */
+  color: #fff;
   font-size: 1.5rem;
-  color: hsl(var(--hue), 100%, 70%);
-  animation: float 1s ease-out forwards;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Floating animation for hearts */
+.click-label:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(136, 136, 136, 0.4);
+}
+
+#heart-burst {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.heart-animation {
+  position: absolute;
+  animation: float 2s ease-out forwards;
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
 @keyframes float {
   0% {
-    transform: translate(0, 0) scale(1);
+    transform: scale(1) translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translate(var(--x), var(--y)) scale(0.8);
+    transform: scale(1.5) translateY(-100px);
     opacity: 0;
   }
 }
 
-/* Hidden message styling */
 #love-message {
-  font-size: 1.5rem;
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  transform: translateX(-50%);
   font-size: 1.2rem;
-  color: var(--primary-color);
-  background: var(--glass-color);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  padding: 1rem 2rem;
-  border-radius: 15px;
-  opacity: 0;
-  transition: opacity 1s ease;
+  color: #555;
   text-align: center;
+  margin-top: 1rem;
+}
+
+footer {
   margin-top: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  color: #777;
 }
-.heart-icon {
-  font-size: 3rem;
-  color: var(--primary-color);
-  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  animation: pulse 2s infinite
-}
+
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
-
-.click-label {
-  margin-top: 0.5rem;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.2rem;
-  padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 10px;
-  backdrop-filter: blur(3px); 
-  -webkit-backdrop-filter: blur(3px);
-  transition: transform 0.2s ease-in-out, background-color 0.3s ease; 
-}
-.click-label:hover {
-  background-color: var(--primary-color);
-  color: #ffffff;
-  transform: scale(1.1); 
-}
-.action-box {
-  position: relative;
-  background: var(--glass-color);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 5rem;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
-              0 0 10px rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  max-width: 600px;
-  width: 80%;
-  margin: 0rem auto;
-  text-align: center;
-  background-image: url('Whimsical.jpeg');
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  z-index: 0;
-  display: flex; /* Use flexbox to center content */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center items vertically */
-  align-items: center;
-  margin-top: 0;
-}
-.action-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('Whimsical.jpeg');
-  background-size: cover;
-  background-position: center;
-  z-index: -1; /* Place the pseudo-element behind the content */
-  border-radius: inherit; /* Match the border radius of the parent */
-  box-sizing: border-box;
-}
-p, button, div {
-  font-family: var(--font-primary);
-  line-height: 1.6;
-}
-
