@@ -1,32 +1,76 @@
-
+:root {
+  --primary-color: #6c757d; /* Neutral gray for accents */
+  --secondary-color: #adb5bd; /* Light gray for buttons */
+  --background-color: #f8f9fa; /* Light shade of white for the background */
+  --glass-color: rgba(255, 255, 255, 0.6); /* Glassy translucent white */
+  --text-color: #343a40; /* Dark gray for text */
+  --font-primary: 'Poppins', sans-serif; /* Clean, modern font */
+  --font-secondary: 'Pacifico', cursive; /* Whimsical font for headers */
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #1e1e2f;
-    color: #f5f5f5;
-    font-family: 'Arial', sans-serif;
-    background-size: cover;
-    backdrop-filter: blur(6px); /* adds the blur effect */
-    -webkit-backdrop-filter: blur(6px); /* for Safari */
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffffff, #f1f3f5); /* Subtle gradient */
+}
+  @media (max-width: 768px) {
+    .action-box {
+      padding: 2rem;
+    }
+    .click-label {
+      font-size: 1rem;
+    }
   }
 
-/* Container holds the layout */
+/* Style the header */
+header {
+  width: 100%;
+  background-color: var(--primary-color); /* Use a primary color for emphasis */
+  color: var(--text-color); /* Ensure text is readable */
+  text-align: center; /* Center the text horizontally */
+  padding: 0.8rem; /* Add spacing around the header */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Optional: Add a border */
+  position: relative;
+  margin-bottom: 0.1rem;
+}
+
+/* Style the h1 inside the header */
+header h1 {
+  width: 100%;
+  background-color: var(--primary-color); 
+  font-size: 3rem; /* Make the title large and prominent */
+  font-family: var(--font-secondary); /* Use a whimsical font for a playful feel */
+  margin: 0; /* Remove default margin */
+  line-height: 1.2; 
+  color: var(--text-color); 
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Optional: Add a border */
+  position: relative; 
+}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  /*margin: 0;*/
+  height: calc(100vh - 100px); 
+  margin-top: 0rem;
+  flex-direction: column;
 }
 
 /* Central heart button styling */
@@ -43,19 +87,20 @@ body {
 
 /* Footer love message styling */
 footer {
-  background-color: #f58b90;
-  padding: 0.1rem 0.1rem;
+  background-color: var(--accent-color);
+  padding: 1rem;
   border-radius: 10px;
   position: absolute;
   bottom: 1rem; /* Adjust this value to control how far from the bottom */
   left: 2;
   right: 0;
-  font-size: 1rem;
-  color: #500e37;
+  font-size: 1.2rem;
+  color: var(--text-color);
   opacity: 0.8;
-  font-family: 'Cursive', 'Comic Sans MS', sans-serif; /* Whimsical font */
-  font-weight: 600; /* Slightly bolder font */
+  font-family: var(--font-secondary); 
+  font-weight: 600; 
   text-align: center;
+  margin-top: center;
 
 }
 
@@ -90,54 +135,71 @@ footer {
 
 /* Hidden message styling */
 #love-message {
+  font-size: 1.5rem;
   position: absolute;
-  bottom: 10%;
-  left: 50%;
+  bottom: 0%;
+  left: 0%;
   transform: translateX(-50%);
   font-size: 1.2rem;
-  color: #ff90b3;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px 20px;
-  border-radius: 10px;
+  color: var(--primary-color);
+  background: var(--glass-color);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 1rem 2rem;
+  border-radius: 15px;
   opacity: 0;
   transition: opacity 1s ease;
+  text-align: center;
+  margin-top: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .heart-icon {
-  font-size: 4rem;
-  color: #ff6b6b;
+  font-size: 3rem;
+  color: var(--primary-color);
   text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  animation: pulse 2s infinite
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 .click-label {
   margin-top: 0.5rem;
   border: none;
-  color: #914166;
-  font-size: 1.3rem;
-  padding: 1rem 0.5rem;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
-  background-color: rgba(83, 25, 64, 0.1);
+  background-color: var(--secondary-color);
+  border: none;
   border-radius: 10px;
   backdrop-filter: blur(3px); 
   -webkit-backdrop-filter: blur(3px);
   transition: transform 0.2s ease-in-out, background-color 0.3s ease; 
 }
 .click-label:hover {
-  background-color: rgba(250, 174, 240, 0.9); /* Slightly darker green on hover */
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: scale(1.1); 
 }
 .action-box {
   position: relative;
-  background-color: rgba(20, 20, 30, 0.6); /* translucent dark for contrast */
+  background: var(--glass-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 5rem;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
               0 0 10px rgba(0, 0, 0, 0.7);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  max-width: 400px;
-  width: 90%;
-  margin: auto;
+  max-width: 600px;
+  width: 80%;
+  margin: 0rem auto;
+  text-align: center;
   background-image: url('Whimsical.jpeg');
   background-size: cover;
   background-position: center;
@@ -147,6 +209,7 @@ footer {
   flex-direction: column; /* Stack items vertically */
   justify-content: center; /* Center items vertically */
   align-items: center;
+  margin-top: 0;
 }
 .action-box::before {
   content: '';
@@ -161,5 +224,9 @@ footer {
   z-index: -1; /* Place the pseudo-element behind the content */
   border-radius: inherit; /* Match the border radius of the parent */
   box-sizing: border-box;
+}
+p, button, div {
+  font-family: var(--font-primary);
+  line-height: 1.6;
 }
 
