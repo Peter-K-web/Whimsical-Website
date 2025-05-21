@@ -70,7 +70,7 @@ header h1 {
   align-items: center;
   height: calc(100vh - 100px); 
   margin-top: 0rem;
-  align-items: stretch;
+  align-items: center;
 }
 
 /* Central heart button styling */
